@@ -1,0 +1,131 @@
+<nav
+  [class.scrolled]="isScrolled"
+  class="fixed top-0 z-50 w-full transition-all duration-300"
+  [ngClass]="{
+    'bg-white/95 shadow-lg backdrop-blur-md': isScrolled,
+    'bg-transparent': !isScrolled,
+  }"
+>
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <!-- Logo -->
+    <div class="flex items-center space-x-2">
+      <img
+        src="icons/logo.png"
+        alt="Digital Bond"
+        class="h-10 w-10 object-contain"
+      />
+      <span
+        class="text-xl font-bold transition-colors"
+        [ngClass]="isScrolled ? 'text-gray-900' : 'text-white'"
+      >
+        Digital Bond
+      </span>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <div class="hidden items-center space-x-8 md:flex">
+      <a
+        (click)="scrollToSection('home')"
+        class="hover:text-primary cursor-pointer font-medium transition-colors"
+        [ngClass]="isScrolled ? 'text-gray-900' : 'text-white'"
+      >
+        Home
+      </a>
+      <a
+        (click)="scrollToSection('about')"
+        class="hover:text-primary cursor-pointer font-medium transition-colors"
+        [ngClass]="isScrolled ? 'text-gray-900' : 'text-white'"
+      >
+        About
+      </a>
+      <a
+        (click)="scrollToSection('services')"
+        class="hover:text-primary cursor-pointer font-medium transition-colors"
+        [ngClass]="isScrolled ? 'text-gray-900' : 'text-white'"
+      >
+        Services
+      </a>
+      <a
+        (click)="scrollToSection('reviews')"
+        class="hover:text-primary cursor-pointer font-medium transition-colors"
+        [ngClass]="isScrolled ? 'text-gray-900' : 'text-white'"
+      >
+        Reviews
+      </a>
+      <a
+        (click)="scrollToSection('contact')"
+        class="hover:text-primary cursor-pointer font-medium transition-colors"
+        [ngClass]="isScrolled ? 'text-gray-900' : 'text-white'"
+      >
+        Contact
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button
+      (click)="toggleMobileMenu()"
+      class="md:hidden"
+      [ngClass]="isScrolled ? 'text-gray-900' : 'text-white'"
+    >
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          [ngClass]="isMobileMenuOpen ? 'hidden' : 'block'"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+        <path
+          [ngClass]="isMobileMenuOpen ? 'block' : 'hidden'"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  @if (isMobileMenuOpen) {
+    <div class="bg-white shadow-lg md:hidden">
+      <div class="flex flex-col space-y-4 px-6 py-4">
+        <a
+          (click)="scrollToSection('home')"
+          class="hover:text-primary cursor-pointer font-medium text-gray-900 transition-colors"
+        >
+          Home
+        </a>
+        <a
+          (click)="scrollToSection('about')"
+          class="hover:text-primary cursor-pointer font-medium text-gray-900 transition-colors"
+        >
+          About
+        </a>
+        <a
+          (click)="scrollToSection('services')"
+          class="hover:text-primary cursor-pointer font-medium text-gray-900 transition-colors"
+        >
+          Services
+        </a>
+        <a
+          (click)="scrollToSection('reviews')"
+          class="hover:text-primary cursor-pointer font-medium text-gray-900 transition-colors"
+        >
+          Reviews
+        </a>
+        <a
+          (click)="scrollToSection('contact')"
+          class="hover:text-primary cursor-pointer font-medium text-gray-900 transition-colors"
+        >
+          Contact
+        </a>
+      </div>
+    </div>
+  }
+</nav>

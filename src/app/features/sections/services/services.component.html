@@ -1,0 +1,83 @@
+<section id="services" class="bg-gray-50 px-6 py-20 md:px-12">
+  <div class="mx-auto max-w-7xl">
+    <!-- Section Header -->
+    <div data-aos="fade-up" class="mb-12 text-center">
+      <div
+        class="bg-primary/10 text-primary mb-4 inline-block rounded-full px-4 py-2 text-sm font-semibold"
+      >
+        OUR SERVICES
+      </div>
+      <h2 class="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
+        What We <span class="text-primary">Offer</span>
+      </h2>
+      <p class="mx-auto max-w-2xl text-lg text-gray-600">
+        Comprehensive digital solutions tailored to elevate your brand and drive
+        measurable results.
+      </p>
+    </div>
+
+    <!-- Desktop Grid View -->
+    <div class="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
+      @for (service of services; track service.title; let i = $index) {
+        <div
+          [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="i * 100"
+          class="group cursor-pointer rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+        >
+          <div
+            class="mb-4 text-5xl transition-transform duration-300 group-hover:scale-110"
+          >
+            {{ service.icon }}
+          </div>
+          <h3 class="mb-3 text-xl font-bold text-gray-900">
+            {{ service.title }}
+          </h3>
+          <p class="text-gray-600">{{ service.description }}</p>
+          <div
+            class="text-primary mt-4 flex items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          >
+            <span class="text-sm font-semibold">Learn More</span>
+            <svg
+              class="ml-2 h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Mobile Swiper View -->
+    <div class="md:hidden" data-aos="fade-up">
+      <swiper-container
+        slides-per-view="1"
+        space-between="20"
+        pagination="true"
+        pagination-clickable="true"
+        autoplay-delay="3000"
+        loop="true"
+        class="services-swiper"
+      >
+        @for (service of services; track service.title) {
+          <swiper-slide>
+            <div class="mb-12 rounded-2xl bg-white p-8 shadow-lg">
+              <div class="mb-4 text-5xl">{{ service.icon }}</div>
+              <h3 class="mb-3 text-xl font-bold text-gray-900">
+                {{ service.title }}
+              </h3>
+              <p class="text-gray-600">{{ service.description }}</p>
+            </div>
+          </swiper-slide>
+        }
+      </swiper-container>
+    </div>
+  </div>
+</section>

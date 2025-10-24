@@ -1,0 +1,118 @@
+<section id="reviews" class="bg-white px-6 py-20 md:px-12">
+  <div class="mx-auto max-w-7xl">
+    <!-- Section Header -->
+    <div data-aos="fade-up" class="mb-12 text-center">
+      <div
+        class="bg-primary/10 text-primary mb-4 inline-block rounded-full px-4 py-2 text-sm font-semibold"
+      >
+        TESTIMONIALS
+      </div>
+      <h2 class="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
+        What Our <span class="text-primary">Clients Say</span>
+      </h2>
+      <p class="mx-auto max-w-2xl text-lg text-gray-600">
+        Don't just take our word for it. Here's what our happy clients have to
+        say about working with us.
+      </p>
+    </div>
+
+    <!-- Reviews Swiper -->
+    <div data-aos="fade-up" data-aos-delay="200">
+      <swiper-container
+        slides-per-view="1"
+        space-between="30"
+        pagination="true"
+        pagination-clickable="true"
+        autoplay-delay="5000"
+        loop="true"
+        breakpoints='{"640": {"slidesPerView": 1}, "768": {"slidesPerView": 2}, "1024": {"slidesPerView": 3}}'
+        class="reviews-swiper pb-12"
+      >
+        @for (review of reviews; track review.name) {
+          <swiper-slide>
+            <div
+              class="group h-full rounded-2xl bg-gray-50 p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            >
+              <!-- Quote Icon -->
+              <div class="text-primary mb-4 text-5xl opacity-20">❝</div>
+
+              <!-- Review Text -->
+              <p class="mb-6 leading-relaxed text-gray-700">
+                {{ review.review }}
+              </p>
+
+              <!-- Rating Stars -->
+              <div class="mb-4 flex space-x-1">
+                @for (star of getStars(review.rating); track $index) {
+                  <svg
+                    class="h-5 w-5 text-yellow-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+                }
+              </div>
+
+              <!-- Client Info -->
+              <div
+                class="flex items-center space-x-4 border-t border-gray-200 pt-6"
+              >
+                <div
+                  class="bg-primary flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-2xl"
+                >
+                  {{ review.avatar }}
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900">{{ review.name }}</h4>
+                  <p class="text-sm text-gray-600">{{ review.position }}</p>
+                </div>
+              </div>
+            </div>
+          </swiper-slide>
+        }
+      </swiper-container>
+    </div>
+
+    <!-- Client Logos -->
+    <div data-aos="fade-up" data-aos-delay="400" class="mt-16">
+      <h3 class="mb-8 text-center text-xl font-semibold text-gray-700">
+        Trusted By Leading Brands
+      </h3>
+      <div
+        class="grid grid-cols-2 items-center justify-items-center gap-8 md:grid-cols-4"
+      >
+        <div class="grayscale transition-all hover:grayscale-0">
+          <img
+            src="icons/logo.png"
+            alt="AutoZ"
+            class="h-12 object-contain opacity-50 transition-opacity hover:opacity-100"
+          />
+        </div>
+        <div class="grayscale transition-all hover:grayscale-0">
+          <img
+            src="icons/logo.png"
+            alt="Carats"
+            class="h-12 object-contain opacity-50 transition-opacity hover:opacity-100"
+          />
+        </div>
+        <div class="grayscale transition-all hover:grayscale-0">
+          <img
+            src="icons/logo.png"
+            alt="Partner 3"
+            class="h-12 object-contain opacity-50 transition-opacity hover:opacity-100"
+          />
+        </div>
+        <div class="grayscale transition-all hover:grayscale-0">
+          <img
+            src="icons/logo.png"
+            alt="Partner 4"
+            class="h-12 object-contain opacity-50 transition-opacity hover:opacity-100"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
