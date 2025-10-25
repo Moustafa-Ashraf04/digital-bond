@@ -1,0 +1,67 @@
+/* Floating Particles */
+.hero-particles {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Different sizes and positions for SVG shape particles */
+.particle-1 {
+  width: 60px;
+  height: 60px;
+  top: 10%;
+  left: 15%;
+}
+
+.particle-2 {
+  width: 80px;
+  height: 80px;
+  top: 60%;
+  left: 80%;
+}
+
+.particle-3 {
+  width: 50px;
+  height: 50px;
+  top: 30%;
+  left: 70%;
+}
+
+.particle-4 {
+  width: 70px;
+  height: 70px;
+  top: 80%;
+  left: 20%;
+}
+
+.particle-5 {
+  width: 55px;
+  height: 55px;
+  top: 45%;
+  left: 5%;
+}
+
+.particle-6 {
+  width: 65px;
+  height: 65px;
+  top: 15%;
+  left: 90%;
+}
+
+.particle-7 {
+  width: 75px;
+  height: 75px;
+  top: 70%;
+  left: 50%;
+}
+
+.particle-8 {
+  width: 60px;
+  height: 60px;
+  top: 25%;
+  left: 40%;
+}

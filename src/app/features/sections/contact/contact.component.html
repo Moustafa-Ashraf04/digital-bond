@@ -1,16 +1,25 @@
 <section id="contact" class="bg-gray-50 px-6 py-20 md:px-12">
   <div class="mx-auto max-w-7xl">
     <!-- Section Header -->
-    <div data-aos="fade-up" class="mb-12 text-center">
+    <div class="contact-header mb-12 text-center">
       <div
         class="bg-primary/10 text-primary mb-4 inline-block rounded-full px-4 py-2 text-sm font-semibold"
+        data-aos="fade-down"
       >
         GET IN TOUCH
       </div>
-      <h2 class="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
+      <h2
+        class="mb-4 text-4xl font-bold text-gray-900 md:text-5xl"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
         Let's <span class="text-primary">Bond Together</span>
       </h2>
-      <p class="mx-auto max-w-2xl text-lg text-gray-600">
+      <p
+        class="mx-auto max-w-2xl text-lg text-gray-600"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
         Ready to take your brand to the next level? We'd love to hear from you.
         Drop us a message and let's start building something amazing together.
       </p>
@@ -18,19 +27,19 @@
 
     <div class="grid gap-12 lg:grid-cols-2">
       <!-- Contact Form -->
-      <div data-aos="fade-right">
+      <div data-aos="fade-right" data-aos-delay="300">
         <form
           [formGroup]="contactForm"
           (ngSubmit)="onSubmit()"
           class="space-y-6"
         >
           <!-- Name Field -->
-          <div>
+          <div class="contact-field">
             <label
               for="name"
               class="mb-2 block text-sm font-semibold text-gray-700"
             >
-              Your Name *
+              Your Name <span class="text-red-500">*</span>
             </label>
             <input
               id="name"
@@ -51,12 +60,12 @@
           </div>
 
           <!-- Email Field -->
-          <div>
+          <div class="contact-field">
             <label
               for="email"
               class="mb-2 block text-sm font-semibold text-gray-700"
             >
-              Your Email *
+              Your Email <span class="text-red-500">*</span>
             </label>
             <input
               id="email"
@@ -78,12 +87,12 @@
           </div>
 
           <!-- Message Field -->
-          <div>
+          <div class="contact-field">
             <label
               for="message"
               class="mb-2 block text-sm font-semibold text-gray-700"
             >
-              Your Message *
+              Your Message <span class="text-red-500">*</span>
             </label>
             <textarea
               id="message"
@@ -156,19 +165,21 @@
       </div>
 
       <!-- Contact Information -->
-      <div data-aos="fade-left" class="space-y-8">
+      <div class="space-y-8" data-aos="fade-left" data-aos-delay="300">
         <!-- Contact Cards -->
-        @for (info of contactInfo; track info.title) {
+        @for (info of contactInfo; track info.title; let i = $index) {
           <a
             [href]="info.link"
             target="_blank"
-            class="group block rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            class="contact-info-card group block rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            data-aos="fade-up"
+            [attr.data-aos-delay]="400 + i * 100"
           >
             <div class="flex items-start space-x-4">
               <div
-                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#AB0102]/10 text-2xl transition-transform duration-300 group-hover:scale-110"
+                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#AB0102]/10 transition-transform duration-300 group-hover:scale-110"
               >
-                {{ info.icon }}
+                <i [class]="info.icon + ' text-primary text-2xl'"></i>
               </div>
               <div class="flex-1">
                 <h3 class="mb-1 font-bold text-gray-900">{{ info.title }}</h3>
@@ -195,34 +206,20 @@
           </a>
         }
 
-        <!-- Map Placeholder -->
-        <div class="overflow-hidden rounded-2xl shadow-lg">
-          <div
-            class="flex h-64 items-center justify-center bg-linear-to-br from-gray-200 to-gray-300"
-          >
-            <div class="text-center text-gray-500">
-              <svg
-                class="mx-auto mb-2 h-16 w-16"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
-              <p class="font-semibold">Ad Dokki, Giza Governorate</p>
-            </div>
-          </div>
+        <!-- Google Maps -->
+        <div
+          class="contact-map overflow-hidden rounded-2xl shadow-lg"
+          data-aos="fade-up"
+          data-aos-delay="700"
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4107.703764253996!2d31.20923581839775!3d30.032457519634583!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145841dbdca09375%3A0xc8f0a33432ed7642!2sDigital%20Bond!5e0!3m2!1sen!2seg!4v1761433962873!5m2!1sen!2seg"
+            class="h-96 w-full border-0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Digital Bond Location"
+          ></iframe>
         </div>
       </div>
     </div>

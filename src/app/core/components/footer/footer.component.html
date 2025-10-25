@@ -26,9 +26,7 @@
               class="group flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 transition-all duration-300 hover:bg-[#AB0102]"
               [attr.aria-label]="social.name"
             >
-              <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24">
-                <path [attr.d]="social.icon" />
-              </svg>
+              <i [class]="social.icon + ' text-base'"></i>
             </a>
           }
         </div>
@@ -158,18 +156,25 @@
   </div>
 
   <!-- Back to Top Button -->
-  <button
-    (click)="scrollToSection('home')"
-    class="bg-primary fixed right-8 bottom-8 z-40 flex h-12 w-12 items-center justify-center rounded-full text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(171,1,2,0.6)]"
-    aria-label="Back to top"
-  >
-    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M5 10l7-7m0 0l7 7m-7-7v18"
-      />
-    </svg>
-  </button>
+  @if (showBackToTop) {
+    <button
+      (click)="scrollToSection('home')"
+      class="bg-primary animate-fadeIn fixed right-8 bottom-8 z-40 flex h-12 w-12 items-center justify-center rounded-full text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(171,1,2,0.6)]"
+      aria-label="Back to top"
+    >
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"
+        />
+      </svg>
+    </button>
+  }
 </footer>
