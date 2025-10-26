@@ -22,7 +22,9 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/public/images",
+              "src/public/icons"
             ],
             "styles": [
               "src/styles.css",
